@@ -1,3 +1,6 @@
+#!/usr/bin/groovy
+
+@Library('c2c-pipeline-library') import static com.camptocamp.utils.*
 
 dockerBuild {
 
