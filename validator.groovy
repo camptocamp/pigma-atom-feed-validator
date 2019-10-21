@@ -38,8 +38,6 @@ doc.'gmd:identificationInfo'.'srv:SV_ServiceIdentification'.'srv:operatesOn'.eac
     }  
 }
 
-println errors
-
 println """<?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="pigma-atom-xml-feed-error">\n"""
   
