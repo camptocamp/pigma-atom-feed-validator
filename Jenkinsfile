@@ -14,4 +14,10 @@ dockerBuild {
       junit allowEmptyResults: true, testResults: 'xunit.xml'
     }
   }
+
+  stage('Announce on slack') {
+    withCredentials([string(credentialsId: 'georchestra-slack-bot-token', variable: 'TOKEN')]) {
+          sh "docker run --rm -e BOT_TOKEN=$TOKEN -e MESSAGE=\"[${JOB_NAME}] build finished: ${BUILD_URL}\" pmauduit/slack_notifier:latest"
+    } // withCreds
+  }
 }
