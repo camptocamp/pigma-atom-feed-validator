@@ -17,7 +17,7 @@ dockerBuild {
 
   stage('Announce on slack') {
     withCredentials([string(credentialsId: 'georchestra-slack-bot-token', variable: 'TOKEN')]) {
-          sh "docker run --rm -e BOT_TOKEN=$TOKEN -e MESSAGE=\"[${JOB_NAME}] build finished\" -e URL=${BUILD_URL} pmauduit/slack_notifier:jenkins"
+          sh "docker run --rm -e BOT_TOKEN=$TOKEN -e RAWDESC=\"${JOB_NAME}\" -e MESSAGE=\"build finished\" -e URL=${BUILD_URL} pmauduit/slack_notifier:jenkins"
     } // withCreds
   }
 }
